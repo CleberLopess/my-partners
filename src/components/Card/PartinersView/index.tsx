@@ -50,7 +50,7 @@ const PartinersViewComponent = ({
       <div className="flex gap-2 justify-between w-full">
         <div className="flex gap-2 w-full">
           <a
-            className="flex items-center gap-2 w-full bg-black p-4 rounded-lg hover:bg-gray-600 "
+            className="flex items-center justify-center gap-2 w-full bg-black p-4 rounded-lg hover:bg-gray-600 "
             href={linkGithub}
             target="_blank"
           >
@@ -58,7 +58,7 @@ const PartinersViewComponent = ({
             Link Github
           </a>
           <a
-            className="flex items-center gap-2 w-full bg-blue-500 p-4 rounded-lg hover:bg-blue-600"
+            className="flex items-center justify-center gap-2 w-full bg-blue-500 p-4 rounded-lg hover:bg-blue-600"
             href={linkDocs}
             target="_blank"
           >
