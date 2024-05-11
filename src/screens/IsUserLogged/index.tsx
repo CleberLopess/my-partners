@@ -12,8 +12,6 @@ export const IsUserLoggedHoock = () => {
 
   useEffect(() => {
     const userDataLocal = getLocalStorage(LOCALSTORAGE_KEYS.USER);
-    console.log(user.name);
-    console.log(!!userDataLocal);
 
     if (!userDataLocal && pathName !== "/login" && pathName !== "/") {
       setLocalStorage(LOCALSTORAGE_KEYS.REDIRECT_ROUTE, pathName);
@@ -28,8 +26,6 @@ export const IsUserLoggedHoock = () => {
       router.push("/login");
     }
   }, [pathName, router, setUser, user.name]);
-
-  console.log();
 
   return null;
 };

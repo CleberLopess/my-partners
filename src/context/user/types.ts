@@ -1,6 +1,8 @@
 export type UserContextType = {
-  user: {
-    name: string;
-  };
-  setUser: React.Dispatch<React.SetStateAction<{ name: string }>>;
+  name: string;
+};
+
+export type UserContextContextType = {
+  user: UserContextType;
+  setUser: (user: { name: string }) => void;
 };

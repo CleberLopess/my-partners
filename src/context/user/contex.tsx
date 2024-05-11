@@ -1,14 +1,14 @@
 "use client";
 import { createContext, useState } from "react";
-import { UserContextType } from "./types";
+import { UserContextType, UserContextContextType } from "./types";
 
-export const UserContext = createContext<UserContextType>({
+export const UserContext = createContext<UserContextContextType>({
   user: { name: "" },
   setUser: () => {},
 });
 
 export const UserProvider = ({ children }: any) => {
-  const [user, setUser] = useState({ name: "" });
+  const [user, setUser] = useState<UserContextType>({ name: "" });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

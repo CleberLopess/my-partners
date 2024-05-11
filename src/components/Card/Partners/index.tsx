@@ -12,9 +12,18 @@ export const CardPartners = ({
   linkDocs,
   linkGithub,
   createdAt,
+  handleClickCard,
 }: CardPartnersProps) => {
+  const handleClick = (event: any) => {
+    event.stopPropagation();
+    handleClickCard(id);
+  };
+
   return (
-    <div className="flex justify-between w-full bg-gray-500">
+    <div
+      className="flex justify-between w-full bg-gray-500 cursor-pointer hover:scale-105"
+      onClick={handleClick}
+    >
       <div className="flex items-center justify-center border-r w-24 gap-2">
         <span>ID: {id}</span>
       </div>

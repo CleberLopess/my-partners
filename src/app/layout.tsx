@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { AppProviders } from "@/context/providers";
 import { IsUserLoggedHoock } from "@/screens/IsUserLogged";
 import "../styles/globals.css";
+import ToastComponent from "@/components/Toast";
+import ToastHook from "@/screens/Toast";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -17,6 +19,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <AppProviders>
       <html lang="pt-br">
         <body>
+          <ToastHook />
           <IsUserLoggedHoock />
           {children}
         </body>

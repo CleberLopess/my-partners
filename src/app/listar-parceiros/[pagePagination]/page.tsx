@@ -1,7 +1,7 @@
-import { ListPartnersScreen } from "@/screens/ListPartners";
+import { PartnersListScreen } from "@/screens/PartnersList";
 
-const ListPartiners = () => {
-  return <ListPartnersScreen />;
+const PartnersList = () => {
+  return <PartnersListScreen />;
 };
 
-export default ListPartiners;
+export default PartnersList;

@@ -7,4 +7,5 @@ export type CardPartnersProps = {
   linkGithub: string;
   linkDocs: string;
   createdAt: string;
+  handleClickCard: (id: string) => void;
 };

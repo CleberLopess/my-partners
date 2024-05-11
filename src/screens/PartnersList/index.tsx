@@ -1,5 +1,6 @@
 "use client";
-import { getPartners, getTypes } from "@/app/api/partners/get/route";
+import { getPartners } from "@/app/api/partners/get/route";
+import { PartnersType } from "@/app/api/partners/types";
 import { CardPartners } from "@/components/Card/Partners";
 import { NavbarComponent } from "@/components/Navbar";
 import { PaginationComponent } from "@/components/Pagination";
@@ -7,13 +8,13 @@ import { UserContext } from "@/context/user/contex";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { getLocalStorage, setLocalStorage } from "@/helpers/localStorage";
 import { LOCALSTORAGE_KEYS } from "@/helpers/localStorage/types";
-import { useRouter, useParams, usePathname } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 
-export const ListPartnersScreen = () => {
+export const PartnersListScreen = () => {
   const { user } = useContext(UserContext);
   const router = useRouter();
   const { pagePagination } = useParams();
-  const [partnersData, setPartnersData] = useState<getTypes[]>([]);
+  const [partnersData, setPartnersData] = useState<PartnersType[]>([]);
   const [currentPage, setCurrentPage] = useState(1 || Number(pagePagination));
   const [itemsPerPage] = useState(5);
 
@@ -63,13 +64,14 @@ export const ListPartnersScreen = () => {
           <CardPartners
             key={partner.id}
             description={partner.description}
-            id={partner.id}
+            id={partner.id!}
             name={partner.name}
             clients={partner.clients.length}
             projects={partner.projects.length}
             linkDocs={partner.urlDoc}
             linkGithub={partner.repositoryGit}
             createdAt={partner.createdAt}
+            handleClickCard={() => router.push(`/parceiro/${partner.id}`)}
           />
         ))}
       </div>

@@ -1,20 +1,9 @@
 import requestAxios from "@/services/axios";
+import { PartnersType } from "../types";
 
-type postTypes = {
-  createdAt: string;
-  name: string;
-  description: string;
-  repositoryGit: string;
-  urlDoc: string;
-  clients: (string | number)[];
-  projects: (string | number)[];
-  id: string;
-  isActive: boolean;
-};
-
-export const postPartners = async (partnerData: postTypes) => {
+export const postPartners = async (partnerData: PartnersType) => {
   try {
-    const { data } = await requestAxios.post<postTypes>("/", partnerData);
+    const { data } = await requestAxios.post<PartnersType>("/", partnerData);
     return data;
   } catch (error) {
     console.error("Erro ao criar parceiro:", error);
