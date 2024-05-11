@@ -15,7 +15,7 @@ import { LOCALSTORAGE_KEYS } from "@/helpers/localStorage/types";
 export const itemsMenu = [
   {
     label: "Cadastrar parceiros",
-    link: "/cadastrar-parceiros",
+    link: "/cadastrar-parceiro",
     icon: <GrUserNew />,
   },
   {
@@ -24,13 +24,13 @@ export const itemsMenu = [
     icon: <CiBoxList />,
   },
   {
-    label: "Cadastrar empresa externa",
-    link: "/cadastrar-empresa-externa",
+    label: "Cadastrar companhia",
+    link: "/cadastrar-companhia",
     icon: <GrUserNew />,
   },
   {
-    label: "Listar empresas externas",
-    link: "/listar-empresas-externas",
+    label: "Listar companhias",
+    link: "/listar-companhias/1",
     icon: <CiBoxList />,
   },
   {

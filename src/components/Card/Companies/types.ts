@@ -2,7 +2,8 @@ export type CardCompaniesProps = {
   createdAt: string;
   companyName: string;
   collaboratorsCount: number;
-  isActive: boolean;
+  isActive?: boolean;
   lastSubmit: string;
   id: string;
+  handleClickCard: (id: string) => void;
 };

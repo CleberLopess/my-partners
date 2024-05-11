@@ -1,6 +1,7 @@
 export enum LOCALSTORAGE_KEYS {
   USER = "user",
   PAGINATION_PARTNERS = "paginationPartners",
+  PAGINATION_COMPANIES = "paginationCompanies",
   REDIRECT_ROUTE = "redirectRoute",
 }
 

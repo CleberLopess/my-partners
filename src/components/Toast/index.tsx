@@ -4,12 +4,6 @@ import { CiCircleCheck } from "react-icons/ci";
 import { useEffect, useState } from "react";
 
 const ToastComponent = ({ text, type, open }: ToastProps) => {
-  const [openToast, setOpenToast] = useState(false);
-
-  useEffect(() => {
-    setOpenToast(open);
-  }, [open]);
-
   const setIcon = () => {
     switch (type) {
       case "error":
@@ -28,19 +22,11 @@ const ToastComponent = ({ text, type, open }: ToastProps) => {
     }
   };
 
-  useEffect(() => {
-    if (openToast) {
-      setTimeout(() => {
-        setOpenToast(false);
-      }, 3000);
-    }
-  }, [openToast]);
-
   return (
     <div
       className={`${
-        openToast ? "block" : "hidden"
-      } ${setBgColor()} fixed flex items-center p-4 mb-4 gap-2 text-sm rounded-lg right-5 bottom-5`}
+        open ? "block" : "hidden"
+      } ${setBgColor()} fixed flex items-center p-4 mb-4 gap-2 text-sm rounded-lg right-5 bottom-5 z-10`}
       role="alert"
     >
       <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 ">

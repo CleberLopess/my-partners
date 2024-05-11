@@ -1,7 +1,9 @@
 "use client";
-import { getPartnersById } from "@/app/api/partners/get/route";
-import { postPartners } from "@/app/api/partners/post/route";
-import { pustPartnersById } from "@/app/api/partners/put/route";
+import {
+  getPartnersById,
+  postPartners,
+  pustPartnersById,
+} from "@/app/api/partners/requests";
 import { PartnersType } from "@/app/api/partners/types";
 import { ButtonComponent } from "@/components/Button";
 import { InputComponent } from "@/components/Input";
@@ -10,14 +12,15 @@ import { NavbarComponent } from "@/components/Navbar";
 import { UserContext } from "@/context/user/contex";
 import { ToastContext } from "@/context/toast/context";
 import { stringToArray } from "@/helpers/stringToArray";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useCallback, useContext, useEffect, useState } from "react";
 
 export const PartnersRegisterOrEditScreen = () => {
   const { id } = useParams();
+  const router = useRouter();
   const { user } = useContext(UserContext);
   const { setToast } = useContext(ToastContext);
-  const [namePartnert, setNamePartner] = useState("");
+  const [namePartner, setNamePartner] = useState("");
   const [descriptionPartner, setDescriptionPartner] = useState("");
   const [clientsPartner, setClientsPartner] = useState("");
   const [projectsPartner, setProjectsPartner] = useState("");
@@ -56,7 +59,7 @@ export const PartnersRegisterOrEditScreen = () => {
 
   useEffect(() => {
     if (
-      namePartnert &&
+      namePartner &&
       descriptionPartner &&
       clientsPartner &&
       projectsPartner &&
@@ -72,13 +75,24 @@ export const PartnersRegisterOrEditScreen = () => {
     descriptionPartner,
     linkDocsPartner,
     linkGithubPartner,
-    namePartnert,
+    namePartner,
     projectsPartner,
   ]);
 
+  const handleClear = useCallback(() => {
+    setNamePartner("");
+    setDescriptionPartner("");
+    setClientsPartner("");
+    setProjectsPartner("");
+    setLinkGithubPartner("");
+    setLinkDocsPartner("");
+    setActivePartner(true);
+    router.back();
+  }, [router]);
+
   const updatePartners = useCallback(
     async (registerPartners: PartnersType) => {
-      const dataPutPartners = {
+      const dataPutPartners: PartnersType = {
         ...registerPartners,
         id: String(id),
       };
@@ -90,6 +104,7 @@ export const PartnersRegisterOrEditScreen = () => {
           message: "Parceiro atualizado com sucesso",
           type: "success",
         });
+        router.back();
       } catch (error) {
         setToast({
           isOpen: true,
@@ -98,7 +113,7 @@ export const PartnersRegisterOrEditScreen = () => {
         });
       }
     },
-    [id, setToast]
+    [id, router, setToast]
   );
 
   const submitPartners = useCallback(
@@ -121,12 +136,13 @@ export const PartnersRegisterOrEditScreen = () => {
         });
       }
     },
-    [setToast]
+    [handleClear, setToast]
   );
 
   const handleSubmit = useCallback(async () => {
+    setOpenModal(false);
     const registerPartners: PartnersType = {
-      name: namePartnert,
+      name: namePartner,
       description: descriptionPartner,
       clients: stringToArray(clientsPartner),
       projects: stringToArray(projectsPartner),
@@ -149,21 +165,11 @@ export const PartnersRegisterOrEditScreen = () => {
     id,
     linkDocsPartner,
     linkGithubPartner,
-    namePartnert,
+    namePartner,
     projectsPartner,
     submitPartners,
     updatePartners,
   ]);
-
-  const handleClear = () => {
-    setNamePartner("");
-    setDescriptionPartner("");
-    setClientsPartner("");
-    setProjectsPartner("");
-    setLinkGithubPartner("");
-    setLinkDocsPartner("");
-    setActivePartner(true);
-  };
 
   return (
     <section className="mt-8">
@@ -177,7 +183,7 @@ export const PartnersRegisterOrEditScreen = () => {
             type="text"
             placeholder="Nome do parceiro"
             onChange={(ev) => setNamePartner(ev.target.value)}
-            value={namePartnert}
+            value={namePartner}
           />
           <InputComponent
             label="Descrição do parceiro"
@@ -246,7 +252,7 @@ export const PartnersRegisterOrEditScreen = () => {
         isOpen={openModal}
       >
         Você tem certeza que deseja
-        {id ? " Atualizar Parceiro" : " Cadastrar Parceiro"}
+        {id ? " Atualizar parceiro" : " Cadastrar parceiro"}
         <div className="flex gap-2 mt-4">
           <ButtonComponent onClick={() => setOpenModal(false)}>
             Cancelar

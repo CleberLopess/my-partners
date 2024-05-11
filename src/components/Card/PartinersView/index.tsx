@@ -1,10 +1,10 @@
 import { FaGithub } from "react-icons/fa6";
-import { CardViewProps } from "./types";
+import { PartinersViewProps } from "./types";
 import { IoDocumentSharp } from "react-icons/io5";
 import { getDate } from "@/helpers/date";
 import { ButtonComponent } from "@/components/Button";
 
-const CardView = ({
+const PartinersViewComponent = ({
   clients,
   createdAt,
   description,
@@ -15,7 +15,7 @@ const CardView = ({
   projects,
   handleClickDelete,
   handleClickEdit,
-}: CardViewProps) => {
+}: PartinersViewProps) => {
   return (
     <div className="flex flex-col items-center w-full bg-gray-500 p-4 rounded gap-2">
       <div className="text-center w-full">
@@ -82,10 +82,10 @@ const CardView = ({
         </div>
       </div>
       <span className="text-sm text-gray-700 dark:text-gray-400">
-        ultima data de atualização em: {getDate(createdAt).dateFormated}
+        Data de criação: {getDate(createdAt).dateFormated}
       </span>
     </div>
   );
 };
 
-export default CardView;
+export default PartinersViewComponent;

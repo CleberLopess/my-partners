@@ -32,9 +32,7 @@ export const CardPartners = ({
         <p>{description}</p>
         <div className="flex justify-between">
           <div>
-            <span>
-              ultima data de atualização em: {getDate(createdAt).dateFormated}
-            </span>
+            <span>Data de criação: {getDate(createdAt).dateFormated}</span>
           </div>
           <div className="flex gap-4">
             <span>numeros de clientes: {clients}</span>

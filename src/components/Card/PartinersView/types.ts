@@ -1,4 +1,4 @@
-export type CardViewProps = {
+export type PartinersViewProps = {
   name: string;
   description: string;
   id: string;
