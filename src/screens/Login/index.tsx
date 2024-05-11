@@ -3,8 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/context/user/contex";
 import { ButtonComponent } from "@/components/Button";
 import { InputComponent } from "@/components/Input";
-import { removeLocalStorage, setLocalStorage } from "@/helpers/localStorage";
-import { LOCALSTORAGE_kEYS } from "@/helpers/localStorage/types";
+import {
+  getLocalStorage,
+  removeLocalStorage,
+  setLocalStorage,
+} from "@/helpers/localStorage";
+import { LOCALSTORAGE_KEYS } from "@/helpers/localStorage/types";
 import { useRouter } from "next/navigation";
 
 export const LoginScreen = () => {
@@ -22,15 +26,23 @@ export const LoginScreen = () => {
   }, [password, username]);
 
   useEffect(() => {
-    removeLocalStorage(LOCALSTORAGE_kEYS.USER);
+    removeLocalStorage(LOCALSTORAGE_KEYS.USER);
   }, []);
 
   const handleLogin = () => {
+    const redirectRoute = getLocalStorage(LOCALSTORAGE_KEYS.REDIRECT_ROUTE);
+    setUser({ name: username });
+
     if (saveUser) {
-      setLocalStorage(LOCALSTORAGE_kEYS.USER, username);
+      setLocalStorage(LOCALSTORAGE_KEYS.USER, username);
     }
 
-    setUser({ name: username });
+    if (redirectRoute) {
+      router.push(redirectRoute);
+      removeLocalStorage(LOCALSTORAGE_KEYS.REDIRECT_ROUTE);
+      return;
+    }
+
     router.push("/");
   };
 

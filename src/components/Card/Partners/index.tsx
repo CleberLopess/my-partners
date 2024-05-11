@@ -1,29 +1,54 @@
 import { CardPartnersProps } from "./types";
+import { IoDocumentSharp } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa6";
+import { getDate } from "@/helpers/date";
 
-export const CardPartners = ({}: CardPartnersProps) => {
+export const CardPartners = ({
+  description,
+  id,
+  name,
+  clients,
+  projects,
+  linkDocs,
+  linkGithub,
+  createdAt,
+}: CardPartnersProps) => {
   return (
-    <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
-      <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-          Very easy this was to integrate
-        </h3>
-        <p className="my-4">
-          If you care for your time, I hands down would go with this
-        </p>
-      </blockquote>
-      <figcaption className="flex items-center justify-center ">
-        <img
-          className="rounded-full w-9 h-9"
-          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
-          alt="profile picture"
-        />
-        <div className="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-          <div>Bonnie Green</div>
-          <div className="text-sm text-gray-500 dark:text-gray-400 ">
-            Developer at Open AI
+    <div className="flex justify-between w-full bg-gray-500">
+      <div className="flex items-center justify-center border-r w-24 gap-2">
+        <span>ID: {id}</span>
+      </div>
+      <div className="flex flex-col w-full gap-2 p-4">
+        <h3 className="">{name}</h3>
+        <p>{description}</p>
+        <div className="flex justify-between">
+          <div>
+            <span>
+              ultima data de atualização em: {getDate(createdAt).dateFormated}
+            </span>
+          </div>
+          <div className="flex gap-4">
+            <span>numeros de clientes: {clients}</span>
+            <span>numeros de projetos: {projects}</span>
           </div>
         </div>
-      </figcaption>
-    </figure>
+      </div>
+      <div className="flex flex-col justify-between min-w-16">
+        <a
+          className="flex text-center items-center justify-center h-full  w-full bg-black p-4 hover:scale-110"
+          href={linkGithub}
+          target="_blank"
+        >
+          <FaGithub className="text-white" />
+        </a>
+        <a
+          className="flex text-center items-center justify-center gap-2 h-full  w-full bg-blue-500 p-4 hover:scale-110"
+          href={linkDocs}
+          target="_blank"
+        >
+          <IoDocumentSharp className="text-white" />
+        </a>
+      </div>
+    </div>
   );
 };

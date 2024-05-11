@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NavbarProps } from "./types";
 
 export const NavbarComponent = ({ userName }: NavbarProps) => {
@@ -6,10 +7,10 @@ export const NavbarComponent = ({ userName }: NavbarProps) => {
       <section className="flex flex-wrap flex-row-reverse justify-between  p-4">
         <ul className="flex gap-8">
           <li className="border-b border-transparent hover:border-cyan-50">
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li className="border-b border-transparent hover:border-cyan-50">
-            <a href="/login">Sair</a>
+            <Link href="/login">Sair</Link>
           </li>
         </ul>
         {userName && (

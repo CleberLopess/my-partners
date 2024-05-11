@@ -1,17 +1,16 @@
 "use client";
-import { useCallback, useContext, useEffect, useMemo } from "react";
+import { useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getPartners } from "@/app/api/partners/get/route";
 import { NavbarComponent } from "@/components/Navbar";
 import { UserContext } from "@/context/user/contex";
-import { getLocalStorage } from "@/helpers/localStorage";
-import { LOCALSTORAGE_kEYS } from "@/helpers/localStorage/types";
 import { CardHome } from "@/components/Card/Home";
 
 //icons
 import { GrUserNew } from "react-icons/gr";
 import { CiBoxList } from "react-icons/ci";
 import { CgDetailsMore } from "react-icons/cg";
+import { removeLocalStorage } from "@/helpers/localStorage";
+import { LOCALSTORAGE_KEYS } from "@/helpers/localStorage/types";
 
 export const itemsMenu = [
   {
@@ -21,7 +20,7 @@ export const itemsMenu = [
   },
   {
     label: "Listar parceiros",
-    link: "/listar-parceiros",
+    link: "/listar-parceiros/1",
     icon: <CiBoxList />,
   },
   {
@@ -43,47 +42,27 @@ export const itemsMenu = [
 
 export const HomeScreen = () => {
   const router = useRouter();
-  const { user, setUser } = useContext(UserContext);
-  const userDataLocal = getLocalStorage(LOCALSTORAGE_kEYS.USER);
-
-  const setItemsMenu = useMemo(() => {
-    return itemsMenu.map((item) => {
-      return (
-        <CardHome
-          key={item.label}
-          handleClickCardHome={() => router.push(item.link)}
-          icon={item.icon}
-          title={item.label}
-        />
-      );
-    });
-  }, [router]);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-    if (userDataLocal) {
-      setUser({ name: userDataLocal });
-      return;
-    }
-
-    if (!user.name) {
-      router.push("/login");
-      return;
-    }
-  }, [router, setUser, user.name, userDataLocal]);
-
-  const get = useCallback(async () => {
-    const data = await getPartners();
+    removeLocalStorage(LOCALSTORAGE_KEYS.PAGINATION_PARTNERS);
+    removeLocalStorage(LOCALSTORAGE_KEYS.REDIRECT_ROUTE);
   }, []);
-
-  useEffect(() => {
-    get();
-  }, [get]);
 
   return (
     <>
       <NavbarComponent userName={user.name} />
       <section className="h-full w-full flex items-center justify-center flex-col gap-8">
-        {setItemsMenu}
+        {itemsMenu.map((item) => {
+          return (
+            <CardHome
+              key={item.label}
+              handleClickCardHome={() => router.push(item.link)}
+              icon={item.icon}
+              title={item.label}
+            />
+          );
+        })}
       </section>
     </>
   );

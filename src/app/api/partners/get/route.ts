@@ -1,6 +1,6 @@
 import requestAxios from "@/services/axios";
 
-type getTypes = {
+export type getTypes = {
   createdAt: string;
   name: string;
   description: string;
@@ -13,11 +13,22 @@ type getTypes = {
 };
 
 export const getPartners = async () => {
-  const { data } = await requestAxios.get<getTypes[]>("");
-  return data;
+  try {
+    const { data } = await requestAxios.get<getTypes[]>("/");
+
+    return data;
+  } catch (error) {
+    console.error("Erro ao buscar parceiros:", error);
+    throw new Error("Erro ao buscar parceiros");
+  }
 };
 
 export const getPartnersById = async (id: string) => {
-  const { data } = await requestAxios.get<getTypes>(`/${id}`);
-  return data;
+  try {
+    const { data } = await requestAxios.get<getTypes>(`/${id}`);
+    return data;
+  } catch (error) {
+    console.error(`Erro ao buscar parceiro com ID ${id}:`, error);
+    throw new Error(`Erro ao buscar parceiro com ID ${id}`);
+  }
 };

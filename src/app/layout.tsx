@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "../styles/globals.css";
 import { AppProviders } from "@/context/providers";
-import { NavbarComponent } from "@/components/Navbar";
+import { IsUserLoggedHoock } from "@/screens/IsUserLogged";
+import "../styles/globals.css";
 
 type RootLayoutProps = {
   children: React.ReactNode;
@@ -14,10 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="pt-br">
-      <body>
-        <AppProviders>{children}</AppProviders>
-      </body>
-    </html>
+    <AppProviders>
+      <html lang="pt-br">
+        <body>
+          <IsUserLoggedHoock />
+          {children}
+        </body>
+      </html>
+    </AppProviders>
   );
 }
