@@ -59,3 +59,5 @@ npm start
 ```bash
 npm run lint
 ```
+
+O acesso na tela de login pode ser preenchido com qualquer credencial
