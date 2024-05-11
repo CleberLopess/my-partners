@@ -73,6 +73,108 @@ export const AboutScreen = () => {
             </li>
           </ul>
         </section>
+
+        <section className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Tecnologias Utilizadas
+          </h2>
+          <p className="text-gray-700">
+            Este projeto foi desenvolvido utilizando as seguintes tecnologias:
+          </p>
+          <ul className="list-disc list-inside text-gray-700 pl-4">
+            <li>
+              Next.js: Framework React utilizado para renderização do lado do
+              servidor (SSR) e geração de páginas estáticas.
+            </li>
+            <li>
+              React.js: Utilizado como o principal framework de frontend,
+              oferecendo componentização e um modelo de desenvolvimento
+              declarativo.
+            </li>
+            <li>
+              Tailwind CSS: Framework de estilização utilizado para uma
+              abordagem moderna e eficiente de estilização baseada em classes.
+            </li>
+            <li>
+              useContext: Hook do React utilizado para gerenciamento de estado
+              global e compartilhamento de dados entre componentes.
+            </li>
+            <li>
+              Axios: Biblioteca para realizar requisições HTTP, utilizada para
+              integração com as APIs de parceiros e empresas externas.
+            </li>
+            <li>
+              localStorage: Utilizado para armazenar dados localmente no
+              navegador, oferecendo uma solução simples de persistência de
+              informações.
+            </li>
+            <li>
+              react-icons: Biblioteca para utilizar ícones de forma simplificada
+              e consistente no projeto.
+            </li>
+          </ul>
+        </section>
+
+        <section className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Declarações do desenvolvedor
+          </h2>
+          <p className="text-gray-700">
+            Esse projeto serviu para ver minhas capacidades tecnicas atuais,
+            Este projeto foi uma oportunidade valiosa para avaliar minhas
+            habilidades técnicas atuais. Acredito sinceramente que dei o meu
+            melhor dentro do prazo estipulado e estou muito satisfeito com o
+            resultado alcançado.
+            <br /> Um dos desafios mais interessantes que enfrentei foi
+            implementar a lógica que redireciona o usuário de volta à página
+            compartilhada após o login, caso ele não estivesse autenticado
+            anteriormente. <br />
+            Com mais tempo à disposição, tenho certeza de que poderia aprimorar
+            e tornar este projeto mais robusto. Ideias como animações de
+            transição, indicadores visuais para informar ao usuário sobre o
+            progresso do carregamento e otimizações de desempenho seriam áreas
+            de foco para melhorias futuras. <br />
+            Espero que tenha apreciado este projeto e esteja ciente de que tenho
+            muito mais a oferecer e a demonstrar nas minhas capacidades
+            técnicas. Estou ansioso para compartilhar mais do meu trabalho no
+            futuro!
+          </p>
+          <h3 className="text-lg font-semibold text-gray-800 mt-4">
+            Entre em contato comigo!
+          </h3>
+          <ul className="list-disc list-inside text-gray-700 pl-4">
+            <li>
+              Portifólio:{" "}
+              <a
+                href="https://lobster-site.vercel.app/"
+                target="_blank"
+                className="text-blue-600 underline"
+              >
+                https://lobster-site.vercel.app/
+              </a>
+            </li>
+            <li>
+              Linkedin{" "}
+              <a
+                href="https://www.linkedin.com/in/cleber-lopess/"
+                target="_blank"
+                className="text-blue-600 underline"
+              >
+                https://www.linkedin.com/in/cleber-lopess/
+              </a>
+            </li>
+            <li>
+              Github{" "}
+              <a
+                href="https://github.com/CleberLopess"
+                target="_blank"
+                className="text-blue-600 underline"
+              >
+                https://github.com/CleberLopess
+              </a>
+            </li>
+          </ul>
+        </section>
       </div>
     </>
   );
