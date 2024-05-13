@@ -1,19 +1,19 @@
 "use client";
+import { useCallback, useContext, useEffect, useState } from "react";
 import {
   getPartnersById,
   deletePartnersById,
 } from "@/app/api/partners/requests";
 import { PartnersType } from "@/app/api/partners/types";
 import { ButtonComponent } from "@/components/Button";
-import PartinersViewComponent from "@/components/Card/PartinersView";
-import ModalComponent from "@/components/Modal";
 import { NavbarComponent } from "@/components/Navbar";
 import { ToastContext } from "@/context/toast/context";
 import { UserContext } from "@/context/user/contex";
 import { useParams, useRouter } from "next/navigation";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import { PartinersViewComponent } from "@/components/Card/PartinersView";
+import { ModalComponent } from "@/components/Modal";
 
-const PartnersPageScreen = () => {
+export const PartnersPageScreen = () => {
   const { id } = useParams();
   const router = useRouter();
   const { user } = useContext(UserContext);
@@ -103,5 +103,3 @@ const PartnersPageScreen = () => {
     </section>
   );
 };
-
-export default PartnersPageScreen;

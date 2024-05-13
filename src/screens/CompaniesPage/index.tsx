@@ -1,19 +1,19 @@
 "use client";
+import { useCallback, useContext, useEffect, useState } from "react";
 import {
   deleteCompanieById,
   getCompaniesById,
 } from "@/app/api/companies/request";
 import { CompaniesProps } from "@/app/api/companies/types";
 import { ButtonComponent } from "@/components/Button";
-import CompaniesViewComponent from "@/components/Card/CompaniesView";
-import ModalComponent from "@/components/Modal";
+import { CompaniesViewComponent } from "@/components/Card/CompaniesView";
+import { ModalComponent } from "@/components/Modal";
 import { NavbarComponent } from "@/components/Navbar";
 import { ToastContext } from "@/context/toast/context";
 import { UserContext } from "@/context/user/contex";
 import { useParams, useRouter } from "next/navigation";
-import React, { useCallback, useContext, useEffect, useState } from "react";
 
-const CompaniesPageScreen = () => {
+export const CompaniesPageScreen = () => {
   const { id } = useParams();
   const router = useRouter();
   const { user } = useContext(UserContext);
@@ -101,5 +101,3 @@ const CompaniesPageScreen = () => {
     </section>
   );
 };
-
-export default CompaniesPageScreen;

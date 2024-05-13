@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { AppProviders } from "@/context/providers";
 import { IsUserLoggedHoock } from "@/screens/IsUserLogged";
+import { ToastHook } from "@/screens/Toast";
 import "../styles/globals.css";
-import ToastComponent from "@/components/Toast";
-import ToastHook from "@/screens/Toast";
 
 type RootLayoutProps = {
   children: React.ReactNode;

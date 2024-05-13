@@ -1,7 +1,7 @@
 "use client";
 import { NavbarComponent } from "@/components/Navbar";
 import { UserContext } from "@/context/user/contex";
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 export const AboutScreen = () => {
   const { user } = useContext(UserContext);

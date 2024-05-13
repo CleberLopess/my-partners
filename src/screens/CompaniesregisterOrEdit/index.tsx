@@ -1,4 +1,5 @@
 "use client";
+import { useCallback, useContext, useEffect, useState } from "react";
 import {
   getCompaniesById,
   postCompanie,
@@ -7,14 +8,13 @@ import {
 import { CompaniesProps } from "@/app/api/companies/types";
 import { ButtonComponent } from "@/components/Button";
 import { InputComponent } from "@/components/Input";
-import ModalComponent from "@/components/Modal";
 import { NavbarComponent } from "@/components/Navbar";
 import { ToastContext } from "@/context/toast/context";
 import { UserContext } from "@/context/user/contex";
 import { useParams, useRouter } from "next/navigation";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { ModalComponent } from "@/components/Modal";
 
-const CompaniesregisterOrEditScreen = () => {
+export const CompaniesregisterOrEditScreen = () => {
   const { id } = useParams();
   const router = useRouter();
   const { user } = useContext(UserContext);
@@ -193,5 +193,3 @@ const CompaniesregisterOrEditScreen = () => {
     </section>
   );
 };
-
-export default CompaniesregisterOrEditScreen;

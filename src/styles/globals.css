@@ -27,9 +27,9 @@ a {
 }
 
 body {
+  @apply h-svh;
   background-color: #1f2937;
   color: #e0e0e0;
-  @apply h-svh;
   padding-top: 57px;
 }
 

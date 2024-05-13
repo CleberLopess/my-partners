@@ -1,9 +1,9 @@
 "use client";
-import ToastComponent from "@/components/Toast";
+import { ToastComponent } from "@/components/Toast";
 import { ToastContext } from "@/context/toast/context";
 import { useContext, useEffect } from "react";
 
-const ToastHook = () => {
+export const ToastHook = () => {
   const { toast, setToast } = useContext(ToastContext);
 
   useEffect(() => {
@@ -26,5 +26,3 @@ const ToastHook = () => {
     />
   );
 };
-
-export default ToastHook;
