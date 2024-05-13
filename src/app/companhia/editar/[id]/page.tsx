@@ -1,4 +1,4 @@
-import CompaniesregisterOrEditScreen from "@/screens/CompaniesregisterOrEdit";
+import { CompaniesregisterOrEditScreen } from "@/screens/CompaniesregisterOrEdit";
 
 const CompaniesregisterOrEdit = () => {
   return <CompaniesregisterOrEditScreen />;

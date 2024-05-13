@@ -4,7 +4,7 @@ import { IoDocumentSharp } from "react-icons/io5";
 import { getDate } from "@/helpers/date";
 import { ButtonComponent } from "@/components/Button";
 
-const PartinersViewComponent = ({
+export const PartinersViewComponent = ({
   clients,
   createdAt,
   description,
@@ -87,5 +87,3 @@ const PartinersViewComponent = ({
     </div>
   );
 };
-
-export default PartinersViewComponent;

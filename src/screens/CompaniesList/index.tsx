@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useContext, useEffect, useState } from "react";
 import { getCompanies } from "@/app/api/companies/request";
 import { CompaniesProps } from "@/app/api/companies/types";
 import { CardCompanies } from "@/components/Card/Companies";
@@ -9,9 +10,8 @@ import { UserContext } from "@/context/user/contex";
 import { getLocalStorage, setLocalStorage } from "@/helpers/localStorage";
 import { LOCALSTORAGE_KEYS } from "@/helpers/localStorage/types";
 import { useParams, useRouter } from "next/navigation";
-import { useCallback, useContext, useEffect, useState } from "react";
 
-const CompaniesExternalsScreen = () => {
+export const CompaniesExternalsScreen = () => {
   const { user } = useContext(UserContext);
   const router = useRouter();
   const { pagePagination } = useParams();
@@ -84,5 +84,3 @@ const CompaniesExternalsScreen = () => {
     </section>
   );
 };
-
-export default CompaniesExternalsScreen;

@@ -2,7 +2,7 @@ import { ButtonComponent } from "@/components/Button";
 import { CompaniesViewProps } from "./type";
 import { getDate } from "@/helpers/date";
 
-const CompaniesViewComponent = ({
+export const CompaniesViewComponent = ({
   collaboratorsCount,
   companyName,
   createdAt,
@@ -48,5 +48,3 @@ const CompaniesViewComponent = ({
     </div>
   );
 };
-
-export default CompaniesViewComponent;

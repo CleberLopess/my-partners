@@ -1,4 +1,4 @@
-import PartnersPageScreen from "@/screens/PartnersPage";
+import { PartnersPageScreen } from "@/screens/PartnersPage";
 
 const PartnersPage = () => {
   return <PartnersPageScreen />;

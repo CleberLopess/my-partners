@@ -1,7 +1,11 @@
 import { ModalProps } from "./types";
 import { IoMdClose } from "react-icons/io";
 
-const ModalComponent = ({ children, handleCloseModal, isOpen }: ModalProps) => {
+export const ModalComponent = ({
+  children,
+  handleCloseModal,
+  isOpen,
+}: ModalProps) => {
   const stopPropagation = (ev: MouseEvent | any) => {
     ev.stopPropagation();
   };
@@ -37,5 +41,3 @@ const ModalComponent = ({ children, handleCloseModal, isOpen }: ModalProps) => {
     </div>
   );
 };
-
-export default ModalComponent;

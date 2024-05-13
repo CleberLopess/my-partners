@@ -7,7 +7,7 @@ import {
 import { PartnersType } from "@/app/api/partners/types";
 import { ButtonComponent } from "@/components/Button";
 import { InputComponent } from "@/components/Input";
-import ModalComponent from "@/components/Modal";
+import { ModalComponent } from "@/components/Modal";
 import { NavbarComponent } from "@/components/Navbar";
 import { UserContext } from "@/context/user/contex";
 import { ToastContext } from "@/context/toast/context";

@@ -1,4 +1,4 @@
-import CompaniesExternalsScreen from "@/screens/CompaniesList";
+import { CompaniesExternalsScreen } from "@/screens/CompaniesList";
 
 const CompaniesExternals = () => {
   return <CompaniesExternalsScreen />;

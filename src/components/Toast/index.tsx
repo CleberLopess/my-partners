@@ -1,9 +1,8 @@
 import { ToastProps } from "./types";
 import { MdErrorOutline } from "react-icons/md";
 import { CiCircleCheck } from "react-icons/ci";
-import { useEffect, useState } from "react";
 
-const ToastComponent = ({ text, type, open }: ToastProps) => {
+export const ToastComponent = ({ text, type, open }: ToastProps) => {
   const setIcon = () => {
     switch (type) {
       case "error":
@@ -36,5 +35,3 @@ const ToastComponent = ({ text, type, open }: ToastProps) => {
     </div>
   );
 };
-
-export default ToastComponent;
